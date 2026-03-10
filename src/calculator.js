@@ -8,6 +8,9 @@
  * - Subtraction (-)
  * - Multiplication (×)
  * - Division (÷)
+ * - Modulo (%)
+ * - Exponentiation (^ or **)
+ * - Square Root (√)
  */
 
 const readline = require('readline');
@@ -63,10 +66,47 @@ function divide(a, b) {
 }
 
 /**
+ * Modulo operation
+ * @param {number} a - Dividend
+ * @param {number} b - Divisor
+ * @returns {number} Remainder of a divided by b
+ * @throws {Error} If divisor is zero
+ */
+function modulo(a, b) {
+  if (b === 0) {
+    throw new Error('Error: Cannot perform modulo with zero divisor');
+  }
+  return a % b;
+}
+
+/**
+ * Exponentiation operation
+ * @param {number} base - Base number
+ * @param {number} exponent - Power to raise base to
+ * @returns {number} Base raised to the exponent
+ */
+function power(base, exponent) {
+  return Math.pow(base, exponent);
+}
+
+/**
+ * Square root operation
+ * @param {number} n - Number to find square root of
+ * @returns {number} Square root of n
+ * @throws {Error} If n is negative
+ */
+function squareRoot(n) {
+  if (n < 0) {
+    throw new Error('Error: Cannot calculate square root of a negative number');
+  }
+  return Math.sqrt(n);
+}
+
+/**
  * Performs calculation based on operator
  * @param {number} num1 - First operand
  * @param {number} num2 - Second operand
- * @param {string} operator - Operation symbol (+, -, ×, /)
+ * @param {string} operator - Operation symbol (+, -, ×, /, %, ^, √)
  * @returns {number} Result of calculation
  */
 function calculate(num1, num2, operator) {
@@ -81,8 +121,15 @@ function calculate(num1, num2, operator) {
     case '/':
     case '÷':
       return divide(num1, num2);
+    case '%':
+      return modulo(num1, num2);
+    case '^':
+    case '**':
+      return power(num1, num2);
+    case '√':
+      return squareRoot(num1);
     default:
-      throw new Error('Invalid operator. Supported operators: +, -, *, ×, /, ÷');
+      throw new Error('Invalid operator. Supported operators: +, -, *, ×, /, ÷, %, ^, **');
   }
 }
 
@@ -96,6 +143,9 @@ function displayMenu() {
   console.log('  [-]  Subtraction');
   console.log('  [*]  Multiplication (or ×)');
   console.log('  [/]  Division (or ÷)');
+  console.log('  [%]  Modulo');
+  console.log('  [^]  Exponentiation (or **)');
+  console.log('  [√]  Square Root');
   console.log('====================================\n');
 }
 
@@ -156,5 +206,8 @@ module.exports = {
   subtract,
   multiply,
   divide,
+  modulo,
+  power,
+  squareRoot,
   calculate
 };
