@@ -1,0 +1,25 @@
+{
+  "name": "lab3-1989-jpg",
+  "version": "1.0.0",
+  "description": "<img src=\"https://octodex.github.com/images/Professortocat_v2.png\" align=\"right\" height=\"200px\" />",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pooja-1989-jpg/Lab3-1989-jpg.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pooja-1989-jpg/Lab3-1989-jpg/issues"
+  },
+  "homepage": "https://github.com/Pooja-1989-jpg/Lab3-1989-jpg#readme",
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}
